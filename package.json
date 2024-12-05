@@ -4,7 +4,6 @@
   "description": "",
   "main": "main.ts",
   "scripts": {
-    "postinstall": "curl -o instantclient.zip https://download.oracle.com/otn_software/instantclient/instantclient-basic-linux.x64-21.10.0.0.0.zip && unzip -o instantclient.zip -d ./oracle && rm instantclient.zip && export LD_LIBRARY_PATH=./oracle",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec npx ts-node main.ts"
   },
