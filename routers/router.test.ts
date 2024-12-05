@@ -1,12 +1,11 @@
-import Express from "express"
-import { test } from '../controllers/test.control'
-import { routeMiddleWare } from '../middlewares/middleware'
+import Express from "express";
+import { test } from "../controllers/test.control";
 
-const route = Express.Router()
+const route = Express.Router();
 
-route.get('/test', routeMiddleWare, async (req, res) => {
-    const data = test()
-    res.send(data)
-})
+route.get("/test", async (req, res) => {
+  const data = test();
+  res.send(data);
+});
 
-export default route
+export default route;
