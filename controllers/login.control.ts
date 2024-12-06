@@ -5,18 +5,14 @@ import { GET_USERS_AD } from "../util/statement";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
-export async function login(body: any, res: any,) {
+export async function login(body: any) {
   const bind_data = {
     PD_AD_BIG: body.Username.toLocaleUpperCase(),
     PD_AD_SMALL: body.Username.toLocaleLowerCase(),
     V_CURSOR: { dir: oracleDB.BIND_OUT, type: oracleDB.CURSOR },
   };
-  const user = await execute_procedure(GET_USERS_AD, bind_data);
-  if (!user){
-    res.status(403).json({ message: "Error database" });
-    return;
-  }
-  if (user.data.length > 0 && body.Password === user.data[0].PASSWORD) {
+  const res = await execute_procedure(GET_USERS_AD, bind_data);
+  if (res.data.length > 0 && body.Password === res.data[0].PASSWORD) {
     const token = jwt.sign(
       {
         USER_ID: res.data[0].USER_ID,
