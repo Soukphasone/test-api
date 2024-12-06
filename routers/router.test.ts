@@ -4,9 +4,7 @@ import { test } from "../controllers/test.control";
 const route = Express.Router();
 
 route.get("/test", async (req, res) => {
-  const data = "Test OK";
-  res.send(data);
+  res.send(test());
 });
 
 export default route;
- 
