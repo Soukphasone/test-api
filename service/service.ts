@@ -1,9 +1,6 @@
 import oracleDB from "oracledb";
 import { connection } from "../lib/orcl";
-import {
-  HTTP_OK,
-  HTTP_SERVER_ERROR,
-} from "../util/httpStatusCode";
+import { HTTP_OK, HTTP_SERVER_ERROR } from "../util/httpStatusCode";
 
 export async function execute_procedure(statement: string, bind_data: any) {
   try {
@@ -34,6 +31,10 @@ export async function execute_procedure(statement: string, bind_data: any) {
     }
   } catch (err: any) {
     console.log(err);
-    return { error: "2", message: err.message, data: err };
+    return {
+      error: "2",
+      message: err.message,
+      data: err,
+    };
   }
 }

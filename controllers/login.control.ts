@@ -14,15 +14,6 @@ export async function login(body: any,) {
     V_CURSOR: { dir: oracleDB.BIND_OUT, type: oracleDB.CURSOR },
   };
   const _user = await execute_procedure(GET_USERS_AD, bind_data);
-  console.log("User:", _user);
-  if (!_user.data || _user.data.length <= 0) {
-    return {
-      error: "1",
-      statusCode: HTTP_SERVER_ERROR,
-      message: "Database connection error",
-      data: [],
-    };
-  }
   if (_user.data.length > 0 && body.Password === _user.data[0].PASSWORD) {
     const token = jwt.sign(
       {
