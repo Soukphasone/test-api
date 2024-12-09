@@ -30,11 +30,11 @@ export async function execute_procedure(statement: string, bind_data: any) {
       };
     }
   } catch (err: any) {
-    console.log(err);
+    console.log("show error:",err);
     return {
       error: "2",
-      message: err.message,
-      data: err,
+      message: "err.message",
+      data: [],
     };
   }
 }

@@ -2,7 +2,6 @@ import oracleDB from "oracledb";
 import { handleResponse } from "../handler/handler.response";
 import { execute_procedure } from "../service/service";
 import { GET_USERS_AD } from "../util/statement";
-import { HTTP_OK, HTTP_SERVER_ERROR } from "../util/httpStatusCode";
 
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
